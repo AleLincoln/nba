@@ -1,0 +1,29 @@
+.nba-navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 3em;
+    padding: 1em 6em;
+
+    background-color: #CC2229;
+    color: #fff;
+}
+
+
+.navbar-nav{
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+
+    a{
+        color:white;
+        text-decoration:none;
+        font-weight: bolder;
+
+        &:hover{
+            color: #1D4289;
+            transition: 0.3s;
+        }
+    }
+}
