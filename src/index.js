@@ -6,6 +6,8 @@ import App from './App';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Players from './src/pages/Players';
 import Navbar from './src/components/navbar';
+import Teams from './src/pages/Teams';
+import Games from './src/pages/Games';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -13,6 +15,8 @@ ReactDOM.render(
     <Switch>
       <Route path='/' component={App} exact />
       <Route path='/players' component={Players} />
+      <Route path='/teams' component={Teams} />
+      <Route path='/games' component={Games} />
       
     </Switch> 
   </BrowserRouter>,
