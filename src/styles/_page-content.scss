@@ -11,20 +11,29 @@
 		display: flex;	
 	}
 
-    & .player-div{
-        margin: 0.3em;
+    .my-table{
+        table {
+            border-collapse: collapse;
+            width: 100%;
+          }
+
+          th{
+            background-color: #CC2229;
+            color: #fff;
+            font-weight: bolder;
+          }
+          
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+          
+          tr:nth-child(even) {
+            background-color: #fff;
+          }
     }
 
-    & a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: bolder;
-
-        &:hover{
-            color: #CC2229;
-            transition: 0.3s;
-        }
-    }
 }
 
 .player-popup{

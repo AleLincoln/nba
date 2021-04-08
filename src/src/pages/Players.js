@@ -7,8 +7,6 @@ function Players() {
     const [page, setPage] = useState(0)
 
     const [data, setData] = useState([])
-
-    const [isPopupCalled, setIsPopupCalled] = useState(false)
     
 
 
@@ -31,35 +29,26 @@ function Players() {
     }, [page])
 
 
-    function PlayerPopup(){
-
-        const routedPlayer = useLocation().search.replace('?player=', '')
-
-        const selectedPlayer = data.length > 0 && data.find((item) => item.id === Number(routedPlayer))
-        
-        console.log(selectedPlayer)
-
-        return <div className='player-popup'>
-            <h3>{`${selectedPlayer.first_name} ${selectedPlayer.last_name}`}</h3>
-            <p>{`Team: ${selectedPlayer.team.full_name}`}</p>
-            {selectedPlayer.position.length > 0 && <h4>{`Position: ${selectedPlayer.position}`}</h4>}
-            <Link to='/players' onClick={() => setIsPopupCalled(false)}>
-                fechar
-            </Link>
-        </div>
-    }
-
-
-
 
 
     return <div className='player-content-wrapper'>
 
-        {isPopupCalled && <PlayerPopup />}
+        <table className='my-table'>
+            <th>Player name</th>
+            <th>Position</th>
+            <th>Team</th>
 
-        {data.map((item) => <div className='player-div'>
-            <Link to={`?player=${item.id}`} onClick={() => setIsPopupCalled(true)}>{`${item.first_name} ${item.last_name}`}</Link>
-        </div>)}
+            {data.map((player) =>            
+                                    <tr>
+                                        
+                                        <td>{`${player.first_name} ${player.last_name}`}</td>
+                                        <td>{player.position}</td>
+                                        <td>{player.team.full_name}</td>
+                                    
+                                    </tr>
+            )}
+        </table>
+        
 
         <div className='buttons'>
             <button onClick={voltarPagina}>Voltar página</button>
